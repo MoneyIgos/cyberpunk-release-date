@@ -1,8 +1,10 @@
 <template>
-  <div class="home">
-    <h1>Cyberpunk</h1>
-    <p>{{ HowLongToRelease }}</p>
-  </div>
+  <v-app dark>
+    <v-content dark class="primary--text">
+      <h1>Cyberpunk</h1>
+      <p>{{ HowLongToRelease }}</p>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
