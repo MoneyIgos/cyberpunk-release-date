@@ -19,5 +19,5 @@ module.exports = {
     'prefer-const': 'warn',
     'no-unused-vars': 'warn',
     'no-console': 'off',
-  }
+  },
 };
