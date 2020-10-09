@@ -1,8 +1,14 @@
 <template>
   <v-app dark>
     <v-content dark class="primary--text">
-      <h1>Cyberpunk</h1>
-      <p>{{ HowLongToRelease }}</p>
+      <v-container>
+        <v-img
+          src="https://assets.rpgsite.net/images/images/000/067/600/original/Cyberpunk-2077_logo.png"
+          max-height="300"
+        ></v-img>
+        <b>Premiera za:</b>
+        <p class=".display-3">{{ HowLongToRelease }}</p>
+      </v-container>
     </v-content>
   </v-app>
 </template>
@@ -21,7 +27,7 @@ export default {
       const timeNow = new Date();
       const timeToRelease = new Date(cpRelease - timeNow);
 
-      this.HowLongToRelease = `Premiera za:
+      this.HowLongToRelease = `
        ${timeToRelease.getMonth() - 1} Miesiąc,
        ${timeToRelease.getDate()} Dni,
        ${timeToRelease.getHours()} Godzin,
