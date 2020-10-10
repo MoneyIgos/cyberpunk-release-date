@@ -36,7 +36,6 @@ export default {
     setInterval(() => {
       const timeNow = new Date().getTime();
       const timeToRelease = cpRelease - timeNow;
-      console.log(timeToRelease);
 
       this.HowLongToReleaseDay = Math.floor(
         timeToRelease / (1000 * 60 * 60 * 24)
