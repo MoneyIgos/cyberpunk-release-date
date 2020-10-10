@@ -7,7 +7,14 @@
           max-height="300"
         ></v-img>
         <b>Premiera za:</b>
-        <p class="text-h3">{{ HowLongToRelease }}</p>
+        <p v-if="timeToRelease < 0" class="text-h3">
+          <b>Wake the fuck up, samurai! We have a city to burn.</b>
+        </p>
+        <p v-else class="text-h3">
+          {{ HowLongToReleaseDay }} Dni, {{ HowLongToReleaseHour }} Godzin,
+          {{ HowLongToReleaseMinute }} Minut,
+          {{ HowLongToReleaseSecond }} Sekund
+        </p>
       </v-container>
     </v-main>
   </v-app>
@@ -17,32 +24,35 @@
 export default {
   data() {
     return {
-      HowLongToRelease: 0,
+      HowLongToReleaseDay: 0,
+      HowLongToReleaseHour: 0,
+      HowLongToReleaseMinute: 0,
+      HowLongToReleaseSecond: 0,
     };
   },
   mounted() {
-    const cpRelease = new Date(2020, 11, 19, 0, 0, 0);
+    const cpRelease = new Date('Nov 19, 2020 00:00:00').getTime();
 
     setInterval(() => {
-      const timeNow = new Date();
-      const timeToRelease = new Date(cpRelease - timeNow);
+      const timeNow = new Date().getTime();
+      const timeToRelease = cpRelease - timeNow;
+      console.log(timeToRelease);
 
-      if (
-        timeToRelease.getMonth() - 1 === 0 &&
-        timeToRelease.getDay() + 5 === 0 &&
-        timeToRelease.getHours() - 2 === 0 &&
-        timeToRelease.getMinutes() === 0 &&
-        timeToRelease.getSeconds() + 1 === 0
-      )
-        this.HowLongToRelease = 'TERAZ';
+      this.HowLongToReleaseDay = Math.floor(
+        timeToRelease / (1000 * 60 * 60 * 24)
+      );
+      this.HowLongToReleaseHour = Math.floor(
+        (timeToRelease % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      this.HowLongToReleaseMinute = Math.floor(
+        (timeToRelease % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      this.HowLongToReleaseSecond = Math.floor(
+        (timeToRelease % (1000 * 60)) / 1000
+      );
 
-      this.HowLongToRelease = `
-       ${timeToRelease.getMonth() - 1} Miesiąc,
-       ${timeToRelease.getDay() + 5} Dni,
-       ${timeToRelease.getHours() - 2} Godzin,
-       ${timeToRelease.getMinutes()} Minut i
-       ${timeToRelease.getSeconds() + 1} Sekund`;
-    }, 100);
+      console.log(timeToRelease);
+    }, 1000);
   },
 };
 </script>
