@@ -1,15 +1,15 @@
 <template>
   <v-app dark>
-    <v-content dark class="primary--text">
+    <v-main dark class="accent--text">
       <v-container>
         <v-img
           src="https://assets.rpgsite.net/images/images/000/067/600/original/Cyberpunk-2077_logo.png"
           max-height="300"
         ></v-img>
         <b>Premiera za:</b>
-        <p class=".display-3">{{ HowLongToRelease }}</p>
+        <p class="text-h3">{{ HowLongToRelease }}</p>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
