@@ -49,8 +49,6 @@ export default {
       this.HowLongToReleaseSecond = Math.floor(
         (timeToRelease % (1000 * 60)) / 1000
       );
-
-      console.log(timeToRelease);
     }, 1000);
   },
 };
