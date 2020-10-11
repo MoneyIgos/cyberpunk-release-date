@@ -28,6 +28,7 @@ export default {
       HowLongToReleaseHour: 0,
       HowLongToReleaseMinute: 0,
       HowLongToReleaseSecond: 0,
+      timeToRelease: 1,
     };
   },
   mounted() {
@@ -36,6 +37,7 @@ export default {
     setInterval(() => {
       const timeNow = new Date().getTime();
       const timeToRelease = cpRelease - timeNow;
+      this.timeToRelease = timeToRelease;
 
       this.HowLongToReleaseDay = Math.floor(
         timeToRelease / (1000 * 60 * 60 * 24)
