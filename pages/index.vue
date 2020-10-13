@@ -21,6 +21,8 @@
 </template>
 
 <script>
+const cpRelease = new Date('Nov 19, 2020 00:00:00').getTime();
+
 export default {
   data() {
     return {
@@ -32,9 +34,10 @@ export default {
     };
   },
   mounted() {
-    const cpRelease = new Date('Nov 19, 2020 00:00:00').getTime();
-
-    setInterval(() => {
+    setInterval(() => this.releaseCount(), 1000);
+  },
+  methods: {
+    releaseCount() {
       const timeNow = new Date().getTime();
       const timeToRelease = cpRelease - timeNow;
       this.timeToRelease = timeToRelease;
@@ -51,7 +54,7 @@ export default {
       this.HowLongToReleaseSecond = Math.floor(
         (timeToRelease % (1000 * 60)) / 1000
       );
-    }, 1000);
+    },
   },
 };
 </script>
