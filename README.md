@@ -1,5 +1,9 @@
 # cyberpunk-release-date
 
+## Page View
+
+https://cyberpunk-date.netlify.app/
+
 ## Build Setup
 
 ```bash
