@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    const cpRelease = new Date('Dec 10, 2020 00:00:00').getTime();
+    const cpRelease = new Date('Dec 10, 2020 01:00:00').getTime();
 
     setInterval(() => {
       const timeNow = new Date().getTime();
